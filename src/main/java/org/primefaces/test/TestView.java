@@ -11,6 +11,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import lombok.Data;
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.file.UploadedFile;
 
 @Data
 @Named
@@ -32,6 +34,11 @@ public class TestView implements Serializable {
                 new TestObject("The Bodyguard", "Whitney Houston", 1992),
                 new TestObject("The Dark Side of the Moon", "Pink Floyd", 1973)
         ));
+    }
+
+    public void checkFile(FileUploadEvent event) {
+        UploadedFile file = event.getFile();
+        System.out.println(file.getFileName());
     }
 
 }
